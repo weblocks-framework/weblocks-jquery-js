@@ -1,6 +1,6 @@
 ;;;; weblocks-prototype-js.lisp
 
-(in-package #:weblocks-query-js)
+(in-package #:weblocks-jquery-js)
 
 (defmethod weblocks-webapp-default-dependencies :around ((self weblocks-webapp))
   (append 
