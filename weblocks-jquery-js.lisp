@@ -4,12 +4,12 @@
 
 (defmethod weblocks-webapp-default-dependencies :around ((self weblocks-webapp))
   (append 
-    (call-next-method)
     (when (equal (weblocks:weblocks-webapp-js-backend self) :jquery)
       (let ((base-path  (weblocks::asdf-system-directory :weblocks-jquery-js)))
         '((:script "jquery-1.8.2" :default t)
           (:script "jquery-seq" :default t)
-          (:script "weblocks-jquery" :default t))))))
+          (:script "weblocks-jquery" :default t))))
+    (call-next-method)))
 
 (defmethod initialize-webapp :after ((self weblocks-webapp))
   (weblocks-utils:require-assets 
